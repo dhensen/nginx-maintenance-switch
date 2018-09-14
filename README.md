@@ -7,6 +7,7 @@ of the upstream.
 ## Prerequisites
 You need to have:
 - docker
+- docker-compose
 - git
 
 ## Reverse proxy + fake app
