@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  reverse_proxy:
+    image: nginx:1.14.0-alpine
+    # https://github.com/nginxinc/docker-nginx/blob/d377983a14b214fcae4b8e34357761282aca788f/stable/alpine/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - "./reverse_proxy/html:/usr/share/nginx/html"
+      - "./reverse_proxy/nginx/nginx.conf:/etc/nginx/nginx.conf"
+      - "./reverse_proxy/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf"
+
+  some_fake_app:
+    image: nginx:1.14.0-alpine
+    volumes:
+      - "./fake_app/html:/usr/share/nginx/html"
+
